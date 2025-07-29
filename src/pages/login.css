@@ -5,10 +5,7 @@
     position: relative;
     width: 100vw;
     overflow-x: hidden;
-    overflow-y: hidden !important;
-    position: fixed;
-    top: 0;
-    left: 0;
+    overflow-y: auto;
   }
   .login-header {
     display: flex;
