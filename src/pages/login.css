@@ -230,13 +230,13 @@
 
 @media (max-width: 900px) {
   .login-social.instagram {
-    left: 11%;
+    left: 9%;
     top: 23%;
     width: 100px;
   }
 }
 
-.login-social.twitter {
+/* .login-social.twitter {
   left: 24%;
   top: 60%;
   width: 121px;
@@ -249,7 +249,7 @@
     top: 63%;
     width: 100px;
   }
-}
+} */
 
 .login-social.facebook {
   right: 31%;
@@ -260,13 +260,13 @@
 
 @media (max-width: 900px) {
   .login-social.facebook {
-    right: 11%;
+    right: 10%;
     top: 24%;
     width: 100px;
   }
 }
 
-.login-social.linkedin {
+/* .login-social.linkedin {
   right: 28%;
   top: 60%;
   width: 102px;
@@ -279,7 +279,7 @@
     top: 67%;
     width: 100px;
   }
-}
+} */
 
 .login-social.reel {
   left: 18%;
@@ -303,7 +303,7 @@
 }
 @media (max-width: 900px) {
   .login-social.send {
-    left: 20%;
+    left: 15%;
     top: 75%;
     width: 60px;
   }
@@ -331,7 +331,7 @@
 }
 @media (max-width: 900px) {
   .login-social.thumbs-up {
-    right: 20%;
+    right: 15%;
     top: 75%;
     width: 60px;
   }
