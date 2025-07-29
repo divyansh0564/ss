@@ -234,7 +234,7 @@ const Dashboard = () => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-8 py-4">
                   {/* Facebook */}
                   <div className="flex flex-col items-center gap-3">
-                    <img src="/src/img/facebook.png" alt="Facebook" className="w-16 h-16 rounded-full shadow-lg" />
+                   <img src="/icons/facebook.png" alt="Facebook" className="w-16 h-16 rounded-full shadow-lg" />
                     <button
                       className={`rounded-full px-6 py-2 font-semibold text-base focus:outline-none transition-colors text-center w-32
                         ${platformConnections.facebook ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
@@ -245,7 +245,7 @@ const Dashboard = () => {
                   </div>
                   {/* Instagram */}
                   <div className="flex flex-col items-center gap-3">
-                    <img src="/src/img/instagram.png" alt="Instagram" className="w-16 h-16 rounded-full shadow-lg" />
+                    <img src="/icons/instagram.png" alt="Instagram" className="w-16 h-16 rounded-full shadow-lg" />
                     <button
                       className={`rounded-full px-6 py-2 font-semibold text-base focus:outline-none transition-colors text-center w-32
                         ${platformConnections.instagram ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
