@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 270 100% 95%; /* light lavender */
+    --foreground: 0 0% 5%; /* almost black */
+
+    --card: 0 0% 10%; /* dark card for contrast */
+    --card-foreground: 0 0% 5%; /* almost black text on card */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    --primary: 300 81% 40%; /* vibrant purple/magenta */
+    --primary-foreground: 0 0% 98%; /* white */
+
+    --secondary: 270 10% 60%; /* muted lavender for panels */
+    --secondary-foreground: 0 0% 5%; /* almost black text on secondary */
+
+    --muted: 270 30% 90%; /* very light lavender */
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 300 81% 40%; /* match primary accent */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 270 30% 85%;
+    --input: 270 30% 85%;
+    --ring: 300 81% 40%;
+
+    --success: 120 50% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 45 93% 47%;
+    --warning-foreground: 0 0% 98%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(300 81% 40%), hsl(270 81% 30%));
+    --gradient-hero: linear-gradient(180deg, hsl(270 100% 95%), hsl(270 30% 90%));
+
+    --shadow-elegant: 0 4px 20px -8px hsl(0 0% 0% / 0.15);
+    --shadow-button: 0 2px 8px -2px hsl(300 81% 40% / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 270 100% 95%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 300 81% 40%;
+  }
+
+  .dark {
+    --background: 277 38% 40%; /* deep purple */
+    --foreground: 0 0% 100%; /* white */
+    --card: 0 0% 10%; /* black/dark card */
+    --card-foreground: 0 0% 100%; /* white text */
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 300 81% 40%; /* vibrant purple/magenta */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 277 38% 50%; /* muted purple for panels */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 277 38% 30%; /* dark muted purple */
+    --muted-foreground: 0 0% 70%;
+    --accent: 300 81% 40%; /* match primary accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 100% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 277 38% 30%;
+    --input: 277 38% 30%;
+    --ring: 300 81% 40%;
+    --sidebar-background: 277 38% 40%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 277 38% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 277 38% 30%;
+    --sidebar-ring: 0 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent-foreground));
+}
+
+/* Platform specific colors */
+.platform-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.platform-twitter {
+  background: #1da1f2;
+}
+
+.platform-linkedin {
+  background: #0077b5;
+}
+
+.platform-facebook {
+  background: #1877f2;
+}
