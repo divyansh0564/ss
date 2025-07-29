@@ -5,6 +5,10 @@ import instagram from "../img/instagram.png";
 import twitter from "../img/twitter.png";
 import facebook from "../img/Facebook.png";
 import linkedin from "../img/linkedin.png";
+import reel from "../img/reel.png";
+import send from "../img/send.png";
+import messenger from "../img/messenger.png";
+import thumbsUp from "../img/thumbs-up.png";
 import phone from "../img/phone_interface.png";
 import "./login.css";
 import Dashboard from "./Dashboard";
@@ -27,7 +31,7 @@ const Login = () => {
             <img src="/logo.svg" alt="Logo" style={{ height: '42px', marginRight: '8px' }} />
           </div>
           <div className="login-header-right">
-            <button className="login-header-btn text-black" onClick={goToDashboard}>Sigin</button>
+            <button className="login-header-btn text-black" onClick={goToDashboard}>Sign in</button>
             <button className="login-header-btn text-black" onClick={goToDashboard}>Get Start</button>
           </div>
         </div>
@@ -50,9 +54,11 @@ const Login = () => {
           <div className="login-ellipse"></div>
           <img src={phone} alt="Phone interface" className="login-phone" />
           <img src={instagram} alt="Instagram" className="login-social instagram" />
-          <img src={twitter} alt="Twitter" className="login-social twitter" />
           <img src={facebook} alt="Facebook" className="login-social facebook" />
-          <img src={linkedin} alt="LinkedIn" className="login-social linkedin" />
+          <img src={reel} alt="Reel" className="login-social reel" />
+          <img src={send} alt="Send" className="login-social send" />
+          <img src={messenger} alt="Messenger" className="login-social messenger" />
+          <img src={thumbsUp} alt="Thumbs Up" className="login-social thumbs-up" />
         </div>
         {/* Footer Section (normal block) */}
         <div className="bg-white/90 backdrop-blur-sm border-t border-gray-200 z-50 w-full">
@@ -83,14 +89,8 @@ const Login = () => {
                 {/* Social Media Icons */}
                 <div className="flex items-center space-x-2">
                   <span className="text-xs text-gray-600 mr-2">Follow us:</span>
-                  <a href="#" className="hover:opacity-80 transition-opacity" onClick={(e) => { e.preventDefault(); alert('Twitter'); }}>
-                    <img src={twitter} alt="Twitter" className="w-5 h-5" />
-                  </a>
                   <a href="#" className="hover:opacity-80 transition-opacity" onClick={(e) => { e.preventDefault(); alert('Facebook'); }}>
                     <img src={facebook} alt="Facebook" className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="hover:opacity-80 transition-opacity" onClick={(e) => { e.preventDefault(); alert('LinkedIn'); }}>
-                    <img src={linkedin} alt="LinkedIn" className="w-5 h-5" />
                   </a>
                   <a href="#" className="hover:opacity-80 transition-opacity" onClick={(e) => { e.preventDefault(); alert('Instagram'); }}>
                     <img src={instagram} alt="Instagram" className="w-5 h-5" />

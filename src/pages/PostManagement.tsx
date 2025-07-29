@@ -128,8 +128,7 @@ const PostManagement = () => {
   const getPlatformColor = (platform: string) => {
     switch (platform) {
       case 'instagram': return 'bg-pink-100 text-pink-800 border-pink-200';
-      case 'twitter': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'linkedin': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'facebook': return 'bg-blue-100 text-blue-800 border-blue-200';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
@@ -184,8 +183,7 @@ const PostManagement = () => {
                 <SelectContent>
                   <SelectItem value="all">All Platforms</SelectItem>
                   <SelectItem value="instagram">Instagram</SelectItem>
-                  <SelectItem value="twitter">Twitter</SelectItem>
-                  <SelectItem value="linkedin">LinkedIn</SelectItem>
+                  <SelectItem value="facebook">Facebook</SelectItem>
                 </SelectContent>
               </Select>
               <Select value={filterStatus} onValueChange={setFilterStatus}>

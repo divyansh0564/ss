@@ -27,39 +27,8 @@ const Dashboard = () => {
     const savedPosts = localStorage.getItem('scheduledPosts');
     if (savedPosts) {
       setPosts(JSON.parse(savedPosts));
-    } else {
-      // Demo posts if none in localStorage
-      const demoPosts: Post[] = [
-        {
-          id: '1',
-          platform: 'Instagram',
-          caption: 'Check out our new product launch! 🚀',
-          media: '',
-          scheduledDate: new Date(Date.now() + 86400000).toISOString().slice(0, 10), // tomorrow
-          scheduledTime: '10:00',
-          status: 'scheduled',
-        },
-        {
-          id: '2',
-          platform: 'Twitter',
-          caption: 'Don’t miss our live Q&A session this Friday!',
-          media: '',
-          scheduledDate: new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10), // in 2 days
-          scheduledTime: '15:30',
-          status: 'scheduling',
-        },
-        {
-          id: '3',
-          platform: 'LinkedIn',
-          caption: 'We’re hiring! Join our amazing team. #careers',
-          media: '',
-          scheduledDate: new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10), // in 3 days
-          scheduledTime: '09:00',
-          status: 'failed',
-        },
-      ];
-      setPosts(demoPosts);
     }
+    // No demo posts fallback
   }, []);
 
   const getStatusVariant = (status: string) => {
@@ -94,9 +63,7 @@ const Dashboard = () => {
 
   // Add state for platform connections
   const [platformConnections, setPlatformConnections] = useState({
-    linkedin: true,
     facebook: true,
-    twitter: true,
     instagram: true,
   });
 
@@ -258,63 +225,34 @@ const Dashboard = () => {
               </CardContent>
             </Card>
 
-            {/* Social platform connection card */}
+            {/* Social platform connection card (NEW DESIGN) */}
             <Card className="bg-[#1a1a1a] rounded-2xl w-full mx-auto">
               <CardHeader>
-                <CardTitle>Platform connection</CardTitle>
+                <CardTitle>Platform Connection</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex justify-around items-center mb-4 sm:mb-7">
-                  {/* Social icons here, e.g. <img src=... /> or <Icon /> */}
-                  {/* Replace with your actual icon components or images */}
-                  <img src="/src/img/linkedin.png" alt="LinkedIn" className="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
-                  <img src="/src/img/facebook.png" alt="Facebook" className="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
-                  <img src="/src/img/twitter.png"  alt="X"        className="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
-                  <img src="/src/img/instagram.png" alt="Instagram" className="w-12 h-12 sm:w-16 sm:h-16 rounded-full" />
-                </div>
-                <div className="grid grid-cols-4 gap-2 sm:gap-3">
-                  <button
-                    className={`rounded-full px-2 sm:px-3 py-1 font-semibold text-xs sm:text-sm focus:outline-none transition-colors text-center ${platformConnections.linkedin ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
-                    onClick={() => toggleConnection('linkedin')}
-                  >
-                    {platformConnections.linkedin ? 'Connected' : 'Disconnected'}
-                  </button>
-                  <button
-                    className={`rounded-full px-2 sm:px-3 py-1 font-semibold text-xs sm:text-sm focus:outline-none transition-colors text-center ${platformConnections.facebook ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
-                    onClick={() => toggleConnection('facebook')}
-                  >
-                    {platformConnections.facebook ? 'Connected' : 'Disconnected'}
-                  </button>
-                  <button
-                    className={`rounded-full px-2 sm:px-3 py-1 font-semibold text-xs sm:text-sm focus:outline-none transition-colors text-center ${platformConnections.twitter ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
-                    onClick={() => toggleConnection('twitter')}
-                  >
-                    {platformConnections.twitter ? 'Connected' : 'Disconnected'}
-                  </button>
-                  <button
-                    className={`rounded-full px-2 sm:px-3 py-1 font-semibold text-xs sm:text-sm focus:outline-none transition-colors text-center ${platformConnections.instagram ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
-                    onClick={() => toggleConnection('instagram')}
-                  >
-                    {platformConnections.instagram ? 'Connected' : 'Disconnected'}
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Date card */}
-            <Card className="bg-[#1a1a1a] rounded-2xl w-full mx-auto">
-              <CardHeader>
-                <CardTitle>Current Date</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-white">
-                    {new Date().toLocaleDateString('en-US', { 
-                      weekday: 'long', 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
-                    })}
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-8 py-4">
+                  {/* Facebook */}
+                  <div className="flex flex-col items-center gap-3">
+                    <img src="/src/img/facebook.png" alt="Facebook" className="w-16 h-16 rounded-full shadow-lg" />
+                    <button
+                      className={`rounded-full px-6 py-2 font-semibold text-base focus:outline-none transition-colors text-center w-32
+                        ${platformConnections.facebook ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
+                      onClick={() => toggleConnection('facebook')}
+                    >
+                      {platformConnections.facebook ? 'Connected' : '+'}
+                    </button>
+                  </div>
+                  {/* Instagram */}
+                  <div className="flex flex-col items-center gap-3">
+                    <img src="/src/img/instagram.png" alt="Instagram" className="w-16 h-16 rounded-full shadow-lg" />
+                    <button
+                      className={`rounded-full px-6 py-2 font-semibold text-base focus:outline-none transition-colors text-center w-32
+                        ${platformConnections.instagram ? 'bg-primary text-primary-foreground' : 'bg-destructive text-destructive-foreground'}`}
+                      onClick={() => toggleConnection('instagram')}
+                    >
+                      {platformConnections.instagram ? 'Connected' : '+'}
+                    </button>
                   </div>
                 </div>
               </CardContent>
